@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Text, StyleSheet, View, ScrollView, ImageBackground, TextInput, TouchableOpacity, ToastAndroid } from 'react-native';
+import { Text, StyleSheet, View, ScrollView, ImageBackground, TextInput, TouchableOpacity, StatusBar } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import Image from '../assets/bg-singin.jpg';
-import { Size, height, Colors } from '../Layout';
+import { Size, height, Colors, Style } from '../Layout';
 
 export default class Singin extends Component {
   constructor() {
@@ -19,40 +20,41 @@ export default class Singin extends Component {
   }
 
   Authenticate() {
-    this.props.navigation.navigate('D');
+    this.props.navigation.navigate('A');
   }
 
   render() {
     return (
       <ScrollView style={{ flex: 1 }}>
+        <StatusBar barStyle='dark-content' backgroundColor={Colors.Button} />
         <ImageBackground source={Image} style={s.bg}>
           <Text style={s.t}>
             Agromeasure
           </Text>
           <View style={{ alignItems: 'center', marginTop: Size.col25 }}>
-            <TextInput
-              value={this.state.u}
-              onChangeText={(t) => this.setState({ u: t })}
-              placeholder="Username"
-              placeholderTextColor={Colors.Black}
-              onSubmitEditing={() => { this.password.focus(); }}
-              keyboardType="email-address"
-              style={s.i} />
-            <TextInput
-              ref={(input) => { this.password = input; }}
-              value={this.state.p}
-              onChangeText={(t) => this.setState({ p: t })}
-              placeholder="Password"
-              placeholderTextColor={Colors.Black}
-              secureTextEntry
-              keyboardType="numbers-and-punctuation"
-              onSubmitEditing={() => this.Authenticate()}
-              style={s.i} />
-            <View style={s.s}>
-              <TouchableOpacity style={s.b} onPress={() => this.Authenticate()}>
-                <Text>Login</Text>
-              </TouchableOpacity>
+            <View style={s.inputIcon}>
+              <TextInput
+                value={this.state.u}
+                onChangeText={(t) => this.setState({ u: t })}
+                placeholder="Username"
+                placeholderTextColor={Colors.Withe}
+                style={[Style.input, { width: Size.col10, marginLeft: 0, paddingLeft: 45 }]}
+              />
+              <Icon name="person-pin" size={30} style={s.iconInput} />
             </View>
+            <View style={s.inputIcon}>
+              <TextInput
+                value={this.state.p}
+                onChangeText={(t) => this.setState({ p: t })}
+                placeholder="Password"
+                placeholderTextColor={Colors.Withe}
+                style={[Style.input, { width: Size.col10, marginLeft: 0, paddingLeft: 45 }]}
+              />
+              <Icon name="lock" size={30} style={s.iconInput} />
+            </View>
+            <TouchableOpacity style={s.b} onPress={() => this.Authenticate()}>
+              <Text style={Style.buttonText}>Login</Text>
+            </TouchableOpacity>
           </View>
         </ImageBackground>
       </ScrollView>
@@ -87,12 +89,18 @@ const s = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     borderRadius: Size.border,
-    opacity: .8
+    borderColor: Colors.Black
   },
-  s: {
-    shadowColor: Colors.Black,
-    shadowOffset: { width: 20, height: 20 },
-    shadowOpacity: 1,
-    shadowRadius: 1,
+  inputIcon: {
+    //flexDirection: 'row',
+    width: Size.col10,
+    height: Size.col1,
+    marginBottom: Size.col05
+  },
+  iconInput: {
+    position: 'absolute',
+    left: 10,
+    top: 8,
+    color: Colors.Withe
   }
 });

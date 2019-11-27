@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Text, StyleSheet, View, ScrollView, TouchableOpacity, TextInput, Picker } from 'react-native'
+import { Text, StyleSheet, View, ScrollView, TouchableOpacity, TextInput, Picker, Image, StatusBar } from 'react-native';
 import Navigation from '../components/Navigation'
 // Assets
 import { Style, Size, Colors } from '../Layout'
@@ -9,9 +9,12 @@ export default function CreateSemilla(props) {
   const [agua, setAgua] = useState('Fuente de Agua');
   return (
     <ScrollView>
-      <Navigation navigation={props.navigation} />
-      <View style={Style.form}>
-        <Text style={[Style.title, { marginBottom: Size.col1 }]}> Calcular siembra </Text>
+      <View style={{ marginBottom: Size.col05, shadowColor: Colors.Black, shadowRadius: 10, shadowOffset: { height: 20, width: 20 }, elevation: 5 }}>
+        <StatusBar barStyle='dark-content' backgroundColor={Colors.Button} />
+        <Image source={require('../assets/Semillas.jpg')} style={Style.imageHeader} />
+        <Text style={{ position: 'absolute', color: Colors.Withe, fontSize: Size.title, left: 100, top: 50 }}>Nueva semilla</Text>
+      </View>
+      <View style={Style.form}>        
         <View style={Style.input}>
           <Picker
             selectedValue={agua}

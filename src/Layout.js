@@ -43,7 +43,7 @@ export const Colors = {
 export const Style = {
     container: {
         flex: 1,
-        backgroundColor: Colors.Withe        
+        backgroundColor: '#F3F4F5'
     },
     title: {
         fontSize: Size.title,
@@ -55,26 +55,26 @@ export const Style = {
     form: {
         width: Size.col11,
         backgroundColor: Colors.Withe,
-        marginLeft: Size.col05,        
+        marginLeft: Size.col05,
+        marginBottom: Size.col05,
         paddingVertical: Size.col05,
         borderRadius: Size.border,
         opacity: 0.85
     },
     input: {
         width: Size.col10,
-        height: Size.col15,
+        height: Size.col1,
         backgroundColor: Colors.Input,                
-        borderRadius: Size.border,
-        marginLeft: Size.col05,
+        borderRadius: Size.border,        
         marginBottom: Size.col05,
-        color: Colors.Black,
+        marginLeft: Size.col05,
+        color: Colors.Withe,
         paddingLeft: Size.border,
-        fontSize: Size.textButton - 5,
-        justifyContent: 'center'
+        fontSize: Size.textButton - 8,        
     },
     button: {
         width: Size.col8,
-        height: Size.col15,
+        height: Size.col1,
         backgroundColor: Colors.Button,
         borderRadius: Size.border,
         marginLeft: Size.col15,        
@@ -88,5 +88,11 @@ export const Style = {
     text: {
         fontSize: Size.textButton - 3,
         color: Colors.Black
+    },
+    imageHeader: {
+        width: Size.col12, 
+        height: Size.col45, 
+        borderBottomLeftRadius: 40, 
+        borderBottomRightRadius: 40
     }
 }

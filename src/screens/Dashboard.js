@@ -46,7 +46,7 @@ export default class Dashboard extends Component {
       <ScrollView style={{ paddingTop: Size.col05, backgroundColor: '#F4F4F4' }}>
         {this.state.data.map((d, i) => {
           return (
-            <View key={i} style={s.b}>
+            <View key={i} style={s.b} onTouchStart={() => this.props.navigation.navigate('T', {image: d.image, title: d.title, description: d.description, date: d.date, state: d.state})} >
               <View>
                 <Image source={d.image} style={s.i} />
               </View>
@@ -75,7 +75,7 @@ const s = StyleSheet.create({
     width: Size.col105,
     height: Size.col45,
     marginLeft: Size.col1,
-    marginBottom: Size.col05,
+    marginBottom: Size.col1,
     backgroundColor: Colors.Withe,
     borderRadius: Size.border,
     elevation: 5,
